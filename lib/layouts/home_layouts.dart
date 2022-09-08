@@ -33,19 +33,43 @@ class _HomeLayoutState extends State<HomeLayout> {
   Widget build(BuildContext context) {
 
 
-    return Scaffold(
+    return DefaultTabController(
+      length: 3,
+      initialIndex: _currentIndex,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom:const  TabBar(
+            tabs: [
+              Tab(
+                icon: Icon(Icons.home),
+                text: 'Home',
+              ),
+              Tab(
+                icon: Icon(Icons.file_copy_rounded),
+                text: 'File',
+              ),
+              Tab(
+                icon: Icon(Icons.work),
+                text: 'Jobs',
+              )
+            ],
+          ),
 
-      body: homeScreens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: items,
-        currentIndex: _currentIndex,
-        onTap: (int index){
-
-          setState(() {
-            _currentIndex=index;
-          });
-
-        },
+        ),
+        body: TabBarView(
+          children:homeScreens
+        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: items,
+        //   currentIndex: _currentIndex,
+        //   onTap: (int index){
+        //
+        //     setState(() {
+        //       _currentIndex=index;
+        //     });
+        //
+        //   },
+        // ),
       ),
     );
   }

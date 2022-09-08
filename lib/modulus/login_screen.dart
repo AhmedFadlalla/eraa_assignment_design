@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             SizedBox(height: height*0.15,),
+             // SizedBox(height: height*0.15,),
              Center(
               child:Text(
                   'Cignifi',
@@ -67,7 +67,7 @@ class LoginScreen extends StatelessWidget {
 
             defaultBottom(function: (){
 
-              navigateTo(context, const HomeLayout());
+              // navigateTo(context, const HomeLayout());
             }, text: 'Sign in'),
              SizedBox(height:height*0.08 ,),
 

@@ -37,84 +37,85 @@ class FileScreen extends StatelessWidget {
       '1 days ago'
 
     ];
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
 
 
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:  [
-            SizedBox(height: height*0.04,),
-            Row(
-              children: [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:  [
+              SizedBox(height: height*0.04,),
+              Row(
+                children: [
 
-                Container(
-                    height: 40,
-                    width: 32,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: Colors.grey
+                  Container(
+                      height: 40,
+                      width: 32,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(3),
+                          color: Colors.grey
+                      ),
+                      child: const Icon(
+                        Icons.drag_handle_outlined,
+                        color: Colors.white,
+
+                      )
+                  ),
+                  const Spacer(),
+                  const CircleAvatar(
+                    radius: 20,
+                    backgroundImage: NetworkImage(
+                        'https://lh3.googleusercontent.com/a-/AFdZucqP7qxM--gpTkJrd0jhvPE1heMDZYQaniKKidLoXxw=s288-p-no'),
+                  ),
+                ],
+              ),
+              SizedBox(height: height*0.04,),
+              Text(
+                'Hello! \nAhmed Fadlallah',
+                style: GoogleFonts.anybody(
+                    textStyle: const TextStyle(
+                        fontSize: 25, fontWeight: FontWeight.bold)),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                'Let\'s manage your own storage',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 17
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              defaultTextField(
+                  controller: searchController,
+                  inputText: TextInputType.text,
+                  validator: (value){},
+                  suffixIcon: Icons.search,
+                  label: 'Search'),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1 / 1.54,
+                      crossAxisSpacing: 1.0,
+                      mainAxisSpacing: 1.0,
                     ),
-                    child: const Icon(
-                      Icons.drag_handle_outlined,
-                      color: Colors.white,
-
-                    )
+                    itemBuilder: (context,index)=>buildFileItem(fileColor[index], text[index],numberOfFiles[index],numberOfHours[index])
                 ),
-                const Spacer(),
-                const CircleAvatar(
-                  radius: 20,
-                  backgroundImage: NetworkImage(
-                      'https://lh3.googleusercontent.com/a-/AFdZucqP7qxM--gpTkJrd0jhvPE1heMDZYQaniKKidLoXxw=s288-p-no'),
-                ),
-              ],
-            ),
-            SizedBox(height: height*0.04,),
-            Text(
-              'Hello! \nAhmed Fadlallah',
-              style: GoogleFonts.anybody(
-                  textStyle: const TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Let\'s manage your own storage',
-              style: TextStyle(
-                  color: Colors.grey,
-                fontSize: 17
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            defaultTextField(
-                controller: searchController,
-                inputText: TextInputType.text,
-                validator: (value){},
-                suffixIcon: Icons.search,
-                label: 'Search'),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                childAspectRatio: 1 / 1.54,
-                crossAxisSpacing: 1.0,
-                mainAxisSpacing: 1.0,
-                children: List.generate(text.length,
-                        (index) =>buildFileItem(fileColor[index], text[index],numberOfFiles[index],numberOfHours[index]) ),
-              ),
-            )
-
-
-          ],
+            ],
+          ),
         ),
       ),
     );

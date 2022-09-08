@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'constant.dart';
-
+Widget myDivider()=>Padding(
+  padding: EdgeInsetsDirectional.only(start: 20.0),
+  child:Container(
+    width: double.infinity,
+    height: 1,
+    color: Colors.grey[300],
+  ) ,);
 Widget defaultTextField({
   required var controller,
   required var inputText,
@@ -13,10 +19,12 @@ Widget defaultTextField({
 })=>Center(
   child: SizedBox(
     width: 300,
+
     child: TextFormField(
       controller: controller,
       keyboardType: inputText,
       validator: validator ,
+
 
 
       style: const TextStyle(

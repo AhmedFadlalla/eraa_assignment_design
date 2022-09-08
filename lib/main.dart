@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'modulus/note_app/note_app_screen.dart';
 import 'modulus/splash_screen/splashScreen.dart';
 
 
@@ -19,13 +20,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // appBarTheme: const AppBarTheme(
-        //   systemOverlayStyle: SystemUiOverlayStyle(
-        //     statusBarIconBrightness: Brightness.light,
-        //   ),
-        // )
+
       ),
-      home: const SplashScreen(),
+      home: const NoteAppScreen(),
     );
   }
 }

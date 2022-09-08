@@ -21,110 +21,112 @@ class RegisterScreen extends StatelessWidget {
 
       body: Padding(
         padding: const EdgeInsets.all(25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20,),
-            InkWell(
-                child:  const Icon(Icons.arrow_back),
-              onTap: (){
-                  navigateTo(context,const LoginScreen());
-              },
-            ),
-            SizedBox(height: height*0.06,),
-            Center(
-              child:Text(
-                'Cignifi',
-                style: GoogleFonts.lobster(
-                    textStyle: const TextStyle(
-                        fontSize: 50,
-                        color: defaultColor
-                    )
-                ),),
-            ),
-            SizedBox(height: height*0.08,),
-            const Text(
-                'Create your Account',
-                style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey
-
-                )),
-            SizedBox(height: height*0.03,),
-
-            defaultTextField(
-                controller: emailController,
-                inputText: TextInputType.emailAddress,
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Email must not be empty';
-                  }
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // const SizedBox(height: 20,),
+              InkWell(
+                  child:  const Icon(Icons.arrow_back),
+                onTap: (){
+                    navigateTo(context,const LoginScreen());
                 },
-                label: 'Email'),
-            const SizedBox(height: 15.0,),
-            defaultTextField(
-                controller: passwordController,
-                inputText: TextInputType.text,
-                validator: (value){
-                  if(value!.isEmpty){
-                    return 'password must not be empty ';
-                  }
-                  return null;
-                },
-                label: 'Password'),
-            const SizedBox(height: 15.0,),
-            defaultTextField(
-                controller: confirmPasswordController,
-                inputText: TextInputType.text,
-                validator: (value){
-                  if(value!.isEmpty){
-                    return 'password must not be empty ';
-                  }
-                  return null;
-                },
-                label: 'Confirm Password'),
-            const SizedBox(height: 35.0,),
+              ),
+              SizedBox(height: height*0.06,),
+              Center(
+                child:Text(
+                  'Cignifi',
+                  style: GoogleFonts.lobster(
+                      textStyle: const TextStyle(
+                          fontSize: 50,
+                          color: defaultColor
+                      )
+                  ),),
+              ),
+              SizedBox(height: height*0.08,),
+              const Text(
+                  'Create your Account',
+                  style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey
 
-            defaultBottom(function: (){
+                  )),
+              SizedBox(height: height*0.03,),
 
-              if(passwordController.text==confirmPasswordController.text){
-                navigateTo(context, const HomeLayout());
-              }
+              defaultTextField(
+                  controller: emailController,
+                  inputText: TextInputType.emailAddress,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'Email must not be empty';
+                    }
+                  },
+                  label: 'Email'),
+              const SizedBox(height: 15.0,),
+              defaultTextField(
+                  controller: passwordController,
+                  inputText: TextInputType.text,
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return 'password must not be empty ';
+                    }
+                    return null;
+                  },
+                  label: 'Password'),
+              const SizedBox(height: 15.0,),
+              defaultTextField(
+                  controller: confirmPasswordController,
+                  inputText: TextInputType.text,
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return 'password must not be empty ';
+                    }
+                    return null;
+                  },
+                  label: 'Confirm Password'),
+              const SizedBox(height: 35.0,),
 
-            }, text: 'Sign up'),
-            SizedBox(height:height*0.08 ,),
+              defaultBottom(function: (){
 
-            const Center(
-              child:  Text(
-                'or Sign in with',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15
+                if(passwordController.text==confirmPasswordController.text){
+                  // navigateTo(context, const HomeLayout());
+                }
+
+              }, text: 'Sign up'),
+              SizedBox(height:height*0.08 ,),
+
+              const Center(
+                child:  Text(
+                  'or Sign in with',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15
+                  ),
                 ),
+
+              ),
+              SizedBox(height:height*0.04 ,),
+              Row(
+
+                children: [
+                  defaultSocialLogo(image: 'assets/images/google.png',),
+                  const SizedBox(width: 18,),
+                  defaultSocialLogo(image: 'assets/images/facebook.png',color: defaultColor),
+                  const SizedBox(width: 18,),
+                  defaultSocialLogo(image: 'assets/images/twitter.png',),
+                ],
               ),
 
-            ),
-            SizedBox(height:height*0.04 ,),
-            Row(
-
-              children: [
-                defaultSocialLogo(image: 'assets/images/google.png',),
-                const SizedBox(width: 18,),
-                defaultSocialLogo(image: 'assets/images/facebook.png',color: defaultColor),
-                const SizedBox(width: 18,),
-                defaultSocialLogo(image: 'assets/images/twitter.png',),
-              ],
-            ),
 
 
 
 
 
 
+            ],
 
-          ],
-
+          ),
         ),
       ),
     );

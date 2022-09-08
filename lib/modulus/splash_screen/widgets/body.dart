@@ -1,3 +1,4 @@
+import 'package:eraa_soft/modulus/page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../login_screen.dart';
@@ -53,10 +54,10 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
 
     Future.delayed(const Duration(seconds: 3),()
     {
-      Navigator.push(
+      Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) =>const LoginScreen()
+              builder: (BuildContext context) =>const PageScreen()
           )
       );
     });
