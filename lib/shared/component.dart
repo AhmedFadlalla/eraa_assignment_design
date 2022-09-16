@@ -24,9 +24,6 @@ Widget defaultTextField({
       controller: controller,
       keyboardType: inputText,
       validator: validator ,
-
-
-
       style: const TextStyle(
           color: Colors.black
       ),
