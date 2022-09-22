@@ -33,7 +33,7 @@ class RemoteDataSource extends BaseRemoteDataSource {
   @override
   Future<PostModel> addPost(PostParameter parameter1) async {
 
-    final response =
+    final http.Response response =
         await http.post(Uri.parse(AppContances.getPostsUrl), headers: {
           "Content-Type":"application/json"
         },
@@ -44,13 +44,6 @@ class RemoteDataSource extends BaseRemoteDataSource {
       "body": parameter1.body
     })
     );
-    if (response.statusCode == 200) {
-      print(PostModel.fromJson(jsonDecode(response.body)));
-      return PostModel.fromJson(jsonDecode(response.body));
-    } else {
-      throw ServerException(
-          errorResultModel:
-              ErrorResultModel.fromJson(jsonDecode(response.body)));
-    }
+    return PostModel.fromJson(jsonDecode(response.body));
   }
 }
