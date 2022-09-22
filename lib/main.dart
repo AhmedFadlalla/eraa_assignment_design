@@ -1,4 +1,6 @@
 
+import 'package:eraa_soft/posts_app/core/services/service_locator.dart';
+import 'package:eraa_soft/posts_app/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,6 +9,9 @@ import 'modulus/splash_screen/splashScreen.dart';
 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ServicesLocator().init();
+
   runApp(const MyApp());
 }
 
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
 
       ),
-      home: const NoteAppScreen(),
+      home: const HomeScreen(),
     );
   }
 }
