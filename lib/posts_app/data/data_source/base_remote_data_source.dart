@@ -44,6 +44,7 @@ class RemoteDataSource extends BaseRemoteDataSource {
       "body": parameter1.body
     })
     );
+
     return PostModel.fromJson(jsonDecode(response.body));
   }
 }

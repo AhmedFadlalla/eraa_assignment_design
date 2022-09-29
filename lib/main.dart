@@ -4,6 +4,7 @@ import 'package:eraa_soft/posts_app/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'chat_app/presentation/screen/chat_home_screen.dart';
 import 'modulus/note_app/note_app_screen.dart';
 import 'modulus/splash_screen/splashScreen.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
 
       ),
-      home: const HomeScreen(),
+      home: const ChatHomeScreen(),
     );
   }
 }

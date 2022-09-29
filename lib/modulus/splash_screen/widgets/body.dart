@@ -1,3 +1,5 @@
+import 'package:eraa_soft/chat_app/presentation/screen/chat_home_screen.dart';
+import 'package:eraa_soft/chat_app/presentation/screen/on_boarding_screen.dart';
 import 'package:eraa_soft/modulus/page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,7 +39,7 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
       child: FadeTransition(
         opacity: feedingAnimation!,
         child:  Text(
-          'Cignifi',
+          'Chaty',
           style: GoogleFonts.lobster(
             textStyle: const TextStyle(
               color: Colors.white,
@@ -57,7 +59,7 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) =>const PageScreen()
+              builder: (BuildContext context) =>const ChatHomeScreen()
           )
       );
     });
